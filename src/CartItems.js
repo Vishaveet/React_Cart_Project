@@ -27,6 +27,20 @@ class CartItem extends React.Component{
             }
         })
     }
+    decreaseQuantity=()=>{
+
+        const {qty}=this.state;
+
+        if(qty===0){
+            return ;
+        }
+        console.log('test1',this.state);
+        this.setState((prevState)=>{
+            return {
+                qty:prevState.qty-1
+            }
+        })
+    }
     render(){
         const { price ,title,qty }=this.state;
         return (
@@ -44,7 +58,9 @@ class CartItem extends React.Component{
                     <img alt="increase" className="action-icons"
                     onClick={this.increaseQuantity}
                     src="https://as2.ftcdn.net/v2/jpg/01/07/62/07/1000_F_107620769_UwNVSoXnKS4VNcOKoZjPohlEPn83oE38.jpg" />
-                    <img alt="decrease" className="action-icons" src="https://as2.ftcdn.net/v2/jpg/01/07/62/09/1000_F_107620985_YEVa8uBObxyKA2DkTSiDL6llE0m0Uzqt.jpg"/>
+                    <img alt="decrease" className="action-icons"
+                    onClick={this.decreaseQuantity}
+                    src="https://as2.ftcdn.net/v2/jpg/01/07/62/09/1000_F_107620985_YEVa8uBObxyKA2DkTSiDL6llE0m0Uzqt.jpg"/>
                   
                     <img alt="delete" className="action-icons" src="https://as2.ftcdn.net/v2/jpg/01/90/89/15/1000_F_190891550_N7uKp2aHE3mOc20dmtDytj7atgvbhdOu.jpg"/>
                 </div>
